@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.filter-container {
+  padding: 1.5rem 0;
+  width: 220px;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .filter-item {
+    padding-bottom: 1.5rem;
+    font-weight: normal;
+    color: #818181;
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 20px;
+      height: 20px;
+      // -webkit-appearance: none;
+      // -moz-appearance: none;
+      outline: none;
+      border: 2px solid #818181;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+  }
+
+  .filter-button {
+    width: 180px;
+    height: 39px;
+    background: #4e4e4e;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+}

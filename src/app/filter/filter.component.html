@@ -1,9 +1,17 @@
 <div class="filter-container">
-  <form>
-    <div class="filter-item" *ngFor="let category of categories; let index">
-      <input id="index" type="checkbox" name="category" checked />
-      <label for="index">{{ category }}</label>
-    </div>
+  <form [formGroup]="categoriesForm" (ngSubmit)="onApply()">
+    <label
+      class="filter-item"
+      formArrayName="categories"
+      *ngFor="
+        let category of categoriesForm.controls.categories['controls'];
+        let i = index
+      "
+    >
+      <input type="checkbox" [formControlName]="i" />
+      {{ categoriesData[i] }}
+      <span class="checkmark"></span>
+    </label>
     <button class="filter-button">APPLY</button>
   </form>
 </div>

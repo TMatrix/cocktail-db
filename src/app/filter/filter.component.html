@@ -1,16 +1,8 @@
 <div class="filter-container">
   <form>
-    <div class="filter-item">
-      <input id="0" type="checkbox" name="Ordinary Drink" checked />
-      <label for="0">Ordinary Drink</label>
-    </div>
-    <div class="filter-item">
-      <input id="1" type="checkbox" name="Cocktail" checked />
-      <label for="1">Cocktail</label>
-    </div>
-    <div class="filter-item">
-      <input id="2" type="checkbox" name="Milk / Float / Shake" checked />
-      <label for="2">Milk / Float / Shake</label>
+    <div class="filter-item" *ngFor="let category of categories; let index">
+      <input id="index" type="checkbox" name="category" checked />
+      <label for="index">{{ category }}</label>
     </div>
     <button class="filter-button">APPLY</button>
   </form>

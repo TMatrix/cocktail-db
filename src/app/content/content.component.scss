@@ -2,6 +2,7 @@
 
 :host {
   flex-grow: 2;
+  border-left: 1px solid #d0d0d0;
 }
 
 .content-container {
@@ -32,11 +33,12 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 0.5em;
+      justify-content: space-between;
 
       .item-card {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
 
         img {

@@ -1,26 +1,17 @@
 <div class="content-container">
-  <div class="content-category-block">
+  <div
+    class="content-category-block"
+    *ngFor="let c of cocktails; let i = index"
+  >
     <div class="content-category-header">
-      <h2>Ordinary Drink</h2>
+      <h2>{{ c.category }}</h2>
       <hr />
     </div>
     <div class="content-category-item">
-      <div class="item-card">
-        <img
-          src="https://www.thecocktaildb.com/images/media/drink/rrtssw1472668972.jpg"
-          alt="img"
-        />
+      <div class="item-card" *ngFor="let drink of c.drinks">
+        <img [src]="drink.thumbnail" alt="img" />
         <div class="card-title">
-          <h3>3-Mile Long Island Iced Tea</h3>
-        </div>
-      </div>
-      <div class="item-card">
-        <img
-          src="https://www.thecocktaildb.com/images/media/drink/rrtssw1472668972.jpg"
-          alt="img"
-        />
-        <div class="card-title">
-          <h3>3-Mile Long Island Iced Tea</h3>
+          <h3>{{ drink.name }}</h3>
         </div>
       </div>
     </div>

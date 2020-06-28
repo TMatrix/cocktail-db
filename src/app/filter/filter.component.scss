@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 .filter-container {
+  position: fixed;
   padding: 1.5rem 0;
   width: 220px;
   font-family: Roboto, sans-serif;
@@ -11,7 +12,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  height: calc(100vh - 70px); // view height without header height
+  height: calc(100vh - 70px);
+  border-right: 1px solid #d0d0d0; // view height without header height
 
   .filter-item {
     display: block;

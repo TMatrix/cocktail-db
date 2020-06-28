@@ -2,11 +2,12 @@
 
 :host {
   flex-grow: 2;
-  border-left: 1px solid #d0d0d0;
 }
 
 .content-container {
   padding: 50px;
+  margin-left: 221px;
+  width: calc(100vw - 221px); //viewport width without filter width
 
   .content-category-block {
     font-family: Roboto, sans-serif;
@@ -33,7 +34,6 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 0.5em;
-      justify-content: space-between;
 
       .item-card {
         display: flex;

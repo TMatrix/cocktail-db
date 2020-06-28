@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:host {
+  flex-grow: 2;
+}
+
+.content-container {
+  padding: 50px;
+
+  .content-category-block {
+    font-family: Roboto, sans-serif;
+    .content-category-header {
+      h2 {
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+
+        line-height: 28px;
+        color: #818181;
+      }
+
+      hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #d0d0d0;
+        margin: 1em 0;
+        padding: 0;
+      }
+    }
+    .content-category-item {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5em;
+
+      .item-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          height: 150px;
+          width: 150px;
+        }
+        .card-title h3 {
+          margin: 1em 0;
+          font-weight: normal;
+          font-style: normal;
+          font-size: 18px;
+          line-height: 21px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

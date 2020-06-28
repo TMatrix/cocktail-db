@@ -8,9 +8,10 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FilterComponent } from './filter/filter.component';
 import { CategoryService } from './services/category.service';
+import { ContentComponent } from './content/content.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FilterComponent],
+  declarations: [AppComponent, HeaderComponent, FilterComponent, ContentComponent],
   imports: [BrowserModule, HttpClientModule, ReactiveFormsModule],
   providers: [CategoryService],
   bootstrap: [AppComponent],

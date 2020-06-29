@@ -32,8 +32,14 @@
     }
     .content-category-item {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(5, minmax(150px, auto));
       gap: 0.5em;
+
+      @media (max-width: 1068px) {
+        & {
+          grid-template-columns: repeat(auto-fill, minmax(150px, auto));
+        }
+      }
 
       .item-card {
         display: flex;

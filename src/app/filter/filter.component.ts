@@ -14,6 +14,8 @@ export class FilterComponent implements OnInit, OnDestroy {
 
   categoriesForm: FormGroup;
 
+  loading: boolean = false;
+
   constructor(
     private categoryService: CategoryService,
     private formBuilder: FormBuilder
@@ -24,11 +26,13 @@ export class FilterComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.loading = true;
     this.categoriesSub = this.categoryService
       .getCategories()
       .subscribe((categoryList) => {
         this.categoriesData = categoryList;
         this.addCheckboxes();
+        this.loading = false;
       });
   }
 

@@ -1,5 +1,6 @@
 <div class="filter-container">
-  <form [formGroup]="categoriesForm" (ngSubmit)="onApply()">
+  <app-loading-spinner [loading]="loading"></app-loading-spinner>
+  <form *ngIf="!loading" [formGroup]="categoriesForm" (ngSubmit)="onApply()">
     <label
       class="filter-item"
       formArrayName="categories"

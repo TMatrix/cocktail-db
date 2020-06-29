@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { CocktailService } from '../services/cocktail.service';
 import { CocktailList } from '../models/cocktailsList.model';
 import { Subscription } from 'rxjs';
@@ -9,8 +9,11 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./content.component.scss'],
 })
 export class ContentComponent implements OnInit, OnDestroy {
-  cocktails: CocktailList[];
+  private cocktails: CocktailList[];
   cocktailsSub: Subscription;
+
+  private currentCategoryIndex: number = 0;
+  currentCategoryList: CocktailList[];
 
   constructor(private cocktailService: CocktailService) {}
 
@@ -19,10 +22,36 @@ export class ContentComponent implements OnInit, OnDestroy {
       .getSelectedCocktails()
       .subscribe((result) => {
         this.cocktails = result;
+        this.currentCategoryList = [this.cocktails[this.currentCategoryIndex]];
       });
   }
 
   ngOnDestroy(): void {
     this.cocktailsSub.unsubscribe();
+  }
+
+  onScroll($event) {
+    if ($event.isReachingBottom) {
+      this.getNextCategory();
+    } else if ($event.isReachingTop) {
+      this.getPrevCategory();
+    }
+    return;
+  }
+
+  getNextCategory() {
+    if (this.currentCategoryIndex < this.cocktails.length) {
+      this.currentCategoryIndex++;
+      this.currentCategoryList = this.currentCategoryList.concat(
+        this.cocktails[this.currentCategoryIndex]
+      );
+    }
+  }
+
+  getPrevCategory() {
+    if (this.currentCategoryIndex > 0) {
+      this.currentCategoryIndex--;
+      this.currentCategoryList.pop();
+    }
   }
 }

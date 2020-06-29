@@ -12,7 +12,7 @@ export class ContentComponent implements OnInit, OnDestroy {
   private cocktails: CocktailList[];
   cocktailsSub: Subscription;
 
-  private currentCategoryIndex: number = 0;
+  private currentCategoryIndex: number;
   currentCategoryList: CocktailList[];
 
   constructor(private cocktailService: CocktailService) {}
@@ -22,7 +22,7 @@ export class ContentComponent implements OnInit, OnDestroy {
       .getSelectedCocktails()
       .subscribe((result) => {
         this.cocktails = result;
-        this.currentCategoryList = [this.cocktails[this.currentCategoryIndex]];
+        this.initListView();
       });
   }
 
@@ -34,7 +34,7 @@ export class ContentComponent implements OnInit, OnDestroy {
     if ($event.isReachingBottom) {
       this.getNextCategory();
     } else if ($event.isReachingTop) {
-      this.getPrevCategory();
+      this.clearPrevCategory();
     }
     return;
   }
@@ -48,10 +48,16 @@ export class ContentComponent implements OnInit, OnDestroy {
     }
   }
 
-  getPrevCategory() {
+  clearPrevCategory() {
     if (this.currentCategoryIndex > 0) {
       this.currentCategoryIndex--;
       this.currentCategoryList.pop();
     }
+  }
+
+  initListView() {
+    this.currentCategoryIndex = 0;
+    window.scrollTo(0, 0);
+    this.currentCategoryList = [this.cocktails[this.currentCategoryIndex]];
   }
 }

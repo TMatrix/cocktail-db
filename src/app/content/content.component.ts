@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CocktailService } from '../services/cocktail.service';
 import { CocktailList } from '../models/cocktailsList.model';
 import { Subscription } from 'rxjs';
@@ -40,11 +40,12 @@ export class ContentComponent implements OnInit, OnDestroy {
   }
 
   getNextCategory() {
-    if (this.currentCategoryIndex < this.cocktails.length) {
+    if (
+      this.currentCategoryIndex < this.cocktails.length - 1 &&
+      this.cocktails.length > 1
+    ) {
       this.currentCategoryIndex++;
-      this.currentCategoryList = this.currentCategoryList.concat(
-        this.cocktails[this.currentCategoryIndex]
-      );
+      this.currentCategoryList.push(this.cocktails[this.currentCategoryIndex]);
     }
   }
 
@@ -57,7 +58,7 @@ export class ContentComponent implements OnInit, OnDestroy {
 
   initListView() {
     this.currentCategoryIndex = 0;
-    window.scrollTo(0, 0);
     this.currentCategoryList = [this.cocktails[this.currentCategoryIndex]];
+    window.scrollTo(0, 0);
   }
 }

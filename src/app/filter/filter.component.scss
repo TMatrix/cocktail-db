@@ -14,6 +14,13 @@
   justify-content: flex-start;
   height: calc(100vh - 70px);
   border-right: 1px solid #d0d0d0; // view height without header height
+  overflow: scroll;
+  -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+
+  &::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome, Safari */
+  }
 
   .filter-item {
     display: block;

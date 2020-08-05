@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap");
 
+$min-header-width: 320px;
+
 .header-container {
   position: fixed;
   top: 0px;
@@ -10,6 +12,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
+  min-width: $min-header-width;
 
   .header-title {
     font-family: "Seaweed Script", cursive;
@@ -18,5 +22,14 @@
     line-height: 41px;
     letter-spacing: 0.51em;
     color: #ff8a00;
+  }
+}
+
+@media (max-width: 550px) {
+  .header-container {
+    justify-content: flex-end;
+    .header-title {
+      font-size: 1.2rem;
+    }
   }
 }

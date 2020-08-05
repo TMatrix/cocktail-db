@@ -15,6 +15,7 @@ export class FilterComponent implements OnInit, OnDestroy {
   categoriesForm: FormGroup;
 
   loading: boolean = false;
+  active: boolean = false;
 
   constructor(
     private categoryService: CategoryService,
@@ -52,5 +53,9 @@ export class FilterComponent implements OnInit, OnDestroy {
       .map((v, i) => (v ? this.categoriesData[i] : null))
       .filter((v) => v !== null);
     this.categoryService.selectCategories(selectedCategories);
+  }
+
+  toggleFilter() {
+    this.active = !this.active;
   }
 }

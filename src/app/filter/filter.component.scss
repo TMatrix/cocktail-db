@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+$max-width-screen: 1068px;
+
 .filter-container {
   position: fixed;
   padding: 1.5rem 0;
   width: 220px;
+  background-color: #fff;
   font-family: Roboto, sans-serif;
   font-style: normal;
   font-size: 16px;
@@ -17,6 +20,8 @@
   overflow: scroll;
   -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
   scrollbar-width: none; /* Hide scrollbar Firefox */
+  left: 0;
+  transition: all ease 0.3s;
 
   &::-webkit-scrollbar {
     display: none; /* Hide scrollbar Chrome, Safari */
@@ -84,5 +89,39 @@
     font-weight: bold;
     color: #ffffff;
     outline: none;
+  }
+}
+
+.toggler {
+  content: "";
+  display: none;
+  position: fixed;
+  background: url("/assets/filter-icon.svg") center no-repeat;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 70px;
+  border-right: 1px solid #d0d0d0;
+
+  &:hover {
+    background-color: rgba(255, 138, 0, 0.2);
+  }
+}
+
+.active {
+  background-color: rgba(255, 138, 0, 0.6);
+}
+
+.open {
+  transform: translateX(220px);
+}
+
+@media (max-width: 1068px) {
+  .filter-container {
+    left: -220px;
+  }
+  .toggler {
+    display: block;
+    z-index: 3;
   }
 }

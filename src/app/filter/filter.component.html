@@ -1,4 +1,4 @@
-<div class="filter-container">
+<div class="filter-container" [class.open]="active">
   <app-loading-spinner [loading]="loading"></app-loading-spinner>
   <form *ngIf="!loading" [formGroup]="categoriesForm" (ngSubmit)="onApply()">
     <label
@@ -16,3 +16,4 @@
     <button class="filter-button">APPLY</button>
   </form>
 </div>
+<div class="toggler" [class.active]="active" (click)="toggleFilter()"></div>

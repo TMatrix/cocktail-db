@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+$max-width-screen: 1068px;
+
 :host {
-  flex-grow: 2;
+  flex-grow: 1;
 }
 
 .content-container {
   padding: 50px;
   margin-left: 206px;
-  width: calc(100vw - 221px); //viewport width without filter width
 
   .content-category-block {
     font-family: Roboto, sans-serif;
@@ -35,7 +36,7 @@
       grid-template-columns: repeat(5, minmax(150px, auto));
       gap: 0.5em;
 
-      @media (max-width: 1068px) {
+      @media (max-width: $max-width-screen) {
         & {
           grid-template-columns: repeat(auto-fill, minmax(150px, auto));
         }
@@ -61,6 +62,12 @@
           text-align: center;
         }
       }
+    }
+  }
+
+  @media (max-width: $max-width-screen) {
+    & {
+      margin-left: 0px;
     }
   }
 }
